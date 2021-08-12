@@ -241,6 +241,9 @@ namespace linb
                 while (std::getline(ini_mem, line))
                 {
                     // Find comment and remove anything after it from the line
+                    if ((pos = line.find_first_of('#')) != line.npos)
+                        line.erase(pos);
+
                     if ((pos = line.find_first_of(';')) != line.npos)
                         line.erase(pos);
 

@@ -65,7 +65,7 @@ public:
 		{
 			regs.ecx = *(uintptr_t*)0xB4EA34; //mov ecx, _ZN12CAnimManager19ms_aAnimAssocGroupsE ; CAnimManager::ms_aAnimAssocGroups
 			int animID = *(int*)(regs.esp + 0x24 + 0xC);
-			if (animID < 400) {
+			if (animID >= 0 && animID < 400) {
 				*(float*)(regs.esp + 0x24 + 0x10) *= animBlendMult[animID];
 			}
 		});
